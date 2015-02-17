@@ -13,15 +13,10 @@
 
 Route::get('/', function()
 {
-	$flavors=array('Banana', 'Čokolada', 'Višnje');
-	return View::make('hello')->with('flavors', $flavors);
-
+	$name=DB:: Connection()->getDatabaseName();
+	return 'Connected';
 });
-Route::post('/', function()
-{
-	return 'form posted';
 
-});
 
 
 
