@@ -9,8 +9,20 @@
 </head>
 <body>
 
-{{HTML::link('http://google.rs','Google')}}
-{{HTML:: ul($list)}}
+<!--{{HTML::link('http://google.rs','Google')}}
+{{HTML:: ul($list)}}-->
+<form action="verify" method="POST">
+	<label>Username 
+		<input name="username" type="text">
+	</label>
+	<br>
+	<label>Password 
+		<input name="password" type="password">
+	</label>
+	<br>
+	<input type="submit">
+	
+</form>
 
 
 

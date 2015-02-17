@@ -14,6 +14,14 @@
 Route::get('/', function()
 {
 	return View::make('hello')->with('list',array('banana', 'jabuka', 'breskva'));
-	
+
 });
+Route::get('verify',function()
+	{
+		return 'Form submited';
+	});
+Route::post('verify',function()
+	{
+		return 'Form posted';
+	});
 
