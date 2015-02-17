@@ -13,15 +13,16 @@
 
 Route::get('/', function()
 {
-	return View::make('hello')->with('list',array('banana', 'jabuka', 'breskva'));
+	$flavors=array('Banana', 'Čokolada', 'Višnje');
+	return View::make('hello')->with('flavors', $flavors);
 
 });
-Route::get('verify',function()
-	{
-		return 'Form submited';
-	});
-Route::post('verify',function()
-	{
-		return 'Form posted';
-	});
+Route::post('/', function()
+{
+	return 'form posted';
+
+});
+
+
+
 
