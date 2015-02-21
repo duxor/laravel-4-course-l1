@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('/', function()
-{
-	$projects=DB::table('projects')->get();
-	return View::make('hello')->with('projects', $projects);
-});
-
+Route::get('/', 'HomeController@showWelcome');
+Route::get('about','HomeController@showAbout');
+Route::get('milkshakes/{flawor?}','MilkshakeController@index');
+/*
 Route::post('add', function()
 {
 	$name= Input::get('name');
@@ -37,3 +35,4 @@ Route::post('donate', function()
 	DB::table('projects')->where('id',$id)-> increment('money',$donation);
 	return Redirect::to('/');
 });
+*/
