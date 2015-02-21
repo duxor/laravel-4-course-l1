@@ -12,6 +12,10 @@
 */
 
 Route::get('/', 'HomeController@showWelcome');
+ //grab every suburl of portfoliourl
+Route:: controller('portfolio','PortfolioController');
+
+
 Route::get('about','HomeController@showAbout');
 Route::get('milkshakes/{flawor?}','MilkshakeController@index');
 /*
