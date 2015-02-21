@@ -11,22 +11,33 @@
 |
 */
 
+Route::get('/', function(){
+	$article=new Article('how to ..');
+	//$article->dumpInfo();
+	$letter='w';
+	if($article->containsLetter($letter)){
+		return 'Contains: '.$letter;
+	}
+	return 'Nope ';
 
+});
 
 //resorce controllers
-Route::resource('recipes','RecipeController');
+//Route::resource('recipes','RecipeController');
 
 
 
 //Restful controllers
  //grab every suburl of portfoliourl
+/*
 Route:: controller('portfolio','PortfolioController');
 
 //Basic controllers
+
 Route::get('/', 'HomeController@showWelcome');
 Route::get('about','HomeController@showAbout');
 Route::get('milkshakes/{flawor?}','MilkshakeController@index');
-/*
+
 Route::post('add', function()
 {
 	$name= Input::get('name');
