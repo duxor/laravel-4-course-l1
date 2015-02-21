@@ -12,6 +12,51 @@
 */
 
 Route::get('/', function(){
+
+	//delete article
+	Article::destroy(3);
+	return 'destroy 3';
+
+	$victims= Article::where('id','<',3);
+	$victims->delete();
+	return 'mass delete';
+
+	//update single article
+	$article=Article::find(4);
+	$article->title='how to drive';
+	$article->save();
+	return 'saved';
+//update multiple article
+	$articles=Article::where('id','<','4');
+	$articles->update(array(
+		'body'=>'test'
+		));
+	return 'mass update';
+
+
+	//$articles=DB:table('articles')->where('id','>','1')->get();
+	//$articles=Article::where('id','>','1')->get();
+
+	// retriving single articles
+	$article=Article::find(4);
+	return $article->title;
+
+	//retriving all articles
+	$articles=Article::all();
+	foreach($articles as $art){
+		var_dump($art->title);
+	}
+	return;
+
+
+	//Create article
+
+	$article3=Article::create(array(
+		'title'=>'HOw .. bike',
+		'body'=>'body4'
+		));
+	return;
+
 	$article2=new Article();
 	$article2->title='How to be succ3';
 	$article2->body='body3';
