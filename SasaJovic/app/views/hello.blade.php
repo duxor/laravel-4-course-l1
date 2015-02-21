@@ -5,7 +5,7 @@
 	<title></title>
 </head>
 <body>
-{{Form:: open(array('url'=>'portfolio/proces'))}}
+{{Form:: open(array('url'=>'recipes/spaghetti', 'method'=>'PUT'))}}
 {{Form::submit()}}
 	{{Form::close()}}
 </body>

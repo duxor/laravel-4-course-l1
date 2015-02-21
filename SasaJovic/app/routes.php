@@ -11,11 +11,19 @@
 |
 */
 
-Route::get('/', 'HomeController@showWelcome');
+
+
+//resorce controllers
+Route::resource('recipes','RecipeController');
+
+
+
+//Restful controllers
  //grab every suburl of portfoliourl
 Route:: controller('portfolio','PortfolioController');
 
-
+//Basic controllers
+Route::get('/', 'HomeController@showWelcome');
 Route::get('about','HomeController@showAbout');
 Route::get('milkshakes/{flawor?}','MilkshakeController@index');
 /*
