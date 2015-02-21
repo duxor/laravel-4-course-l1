@@ -12,13 +12,17 @@
 */
 
 Route::get('/', function(){
-	$article=new Article('how to ..');
-	//$article->dumpInfo();
-	$letter='w';
-	if($article->containsLetter($letter)){
-		return 'Contains: '.$letter;
-	}
-	return 'Nope ';
+	$article2=new Article();
+	$article2->title='How to be succ3';
+	$article2->body='body3';
+	$article2->save();
+	return 'Saved articla. It has an id of '.$article2->id;
+
+$article=Article::create(array(
+	'title'=>'how to potates',
+	'body'=>'This is body'
+	));
+return $article->id;
 
 });
 
