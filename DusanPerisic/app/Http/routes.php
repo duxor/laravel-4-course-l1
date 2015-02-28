@@ -27,12 +27,17 @@ Route::get('kontrola', function(){
 });
 
 Route::post('/identifikacija/update',function(){
-    $korisnik = \App\Http\TestUsers::whereId($_POST['id'])->first();
-    $korisnik->prezime = $_POST['prezime'];
-    $korisnik->ime = $_POST['ime'];
+    if(\App\Http\TestUsers::where('prezime', Input::get('prezime'))->where('ime', Input::get('ime'))->where('jmbg', Input::get('jmbg'))->first()!==null)
+        return 'Nisu navedene nikakve promjene.<br><a href="/" class="btn btn-lg btn-info">Nazad</a>';
+    $korisnik = \App\Http\TestUsers::whereId(Input::get('id'))->first();
+    $korisnik->prezime = Input::get('prezime');
+    $korisnik->ime = Input::get('ime');
+    $korisnik->jmbg = Input::get('jmbg');
     $korisnik->save();
-    return redirect('/');
+    return Redirect::back();
 });
+
+Route::controller('administracija', 'AdministracijaController');
 
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',

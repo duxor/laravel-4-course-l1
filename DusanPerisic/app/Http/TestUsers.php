@@ -11,5 +11,5 @@ namespace App\Http;
 use Illuminate\Database\Eloquent\Model;
 class TestUsers extends Model{
     protected $table = 'testusers';
-    protected $fillable = ['prezime', 'ime', 'updated_at'];
+    protected $fillable = ['prezime', 'ime', 'jmbg', 'updated_at'];
 }
