@@ -12,7 +12,7 @@
     
     <body>
         <div class="container">
-            @yield('body')
+            @yield('content')
         </div>
         
         {!! HTML::script('js/bootstrap.min.js') !!}

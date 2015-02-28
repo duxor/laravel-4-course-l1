@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'GlavniController@index');
 
 Route::get('blog/{objava?}/{edit?}', function($objava = null, $edit = null){
     if($objava)
@@ -26,6 +26,13 @@ Route::get('kontrola', function(){
     return view('stranice.prikaz', ['uslov'=>true, 'lista'=>['1'=>'jedan','3'=>'tri','20'=>'dvadeset'], 'n'=>5]); 
 });
 
+Route::post('/identifikacija/update',function(){
+    $korisnik = \App\Http\TestUsers::whereId($_POST['id'])->first();
+    $korisnik->prezime = $_POST['prezime'];
+    $korisnik->ime = $_POST['ime'];
+    $korisnik->save();
+    return redirect('/');
+});
 
 //Route::controllers([
 //	'auth' => 'Auth\AuthController',

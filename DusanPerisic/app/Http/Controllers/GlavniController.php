@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
-class WelcomeController extends Controller {
+use DB;
+
+class GlavniController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -18,10 +20,10 @@ class WelcomeController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
-	{
-		$this->middleware('guest');
-	}
+//	public function __construct()
+//	{
+//		$this->middleware('guest');
+//	}
 
 	/**
 	 * Show the application welcome screen to the user.
@@ -30,7 +32,8 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+		$korisnici = DB::table('testusers')->whereId(1)->first();
+		return view('stranice.pocetna', ['korisnik'=>$korisnici]);
 	}
 
 }

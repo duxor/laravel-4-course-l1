@@ -1,25 +1,23 @@
 @extends('master')
 
-<?php
-    if(!isset($var)) $var = null;
-    if(!isset($uslov)) $var = null;
-    if(!isset($lista)) $var = null;
-    if(!isset($n)) $var = null;
-?>
-@section('body')
+@if(!isset($var)) {{$var=null}} @endif
+@if(!isset($uslov)) {{$uslov=null}} @endif
+@if(!isset($lista)) {{$lista=null}} @endif
+@if(!isset($n)) {{$n=null}} @endif
 
-{!! $var !!}
+@section('content')
+    {!! $var !!}
 
-@if($uslov)
-    @foreach($lista as $key => $value)
-        {!! $key !!} = {!! $value !!}<br>
-    @endforeach
-    
-    {!! HTML::ul($lista) !!}
+    @if($uslov)
+        @foreach($lista as $key => $value)
+            {!! $key !!} = {!! $value !!}<br>
+        @endforeach
 
-    @for($i=0; $i<$n; $i++)
-        brojac: {!!$i!!}<br>
-    @endfor
-@endif
+        {!! HTML::ul($lista) !!}
 
-@stop
+        @for($i=0; $i<$n; $i++)
+            brojac: {!!$i!!}<br>
+        @endfor
+    @endif
+
+@endsection
